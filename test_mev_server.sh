@@ -1,4 +1,8 @@
 #! /bin/bash
+# Command can be either get-mev or inspect-mev
+# Block is the block number
+# Example: ./test_mev_server.sh get-mev 16379709
+# Don't forget to chmod it :)
 COMMAND="$1"
 BLOCK="$2"
 echo $COMMAND $BLOCK
