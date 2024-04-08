@@ -74,8 +74,8 @@ async def get_mevs(request):
 
         conn = await asyncpg.connect(CONNECTION)
 
-        arbitrages_records = await conn.fetch("SELECT * FROM arbitrages WHERE block_number >= $1 and block_number <= $2 ORDER BY block_number DESC LIMIT $3;", start_block, end_block, limit)
-        sandwiches_records = await conn.fetch("SELECT * FROM sandwiches WHERE block_number >= $1 and block_number <= $2 ORDER BY block_number DESC LIMIT $3;", start_block , end_block, limit)
+        arbitrages_records = await conn.fetch("SELECT block_number, transaction_hash, start_amount, end_amount, profit_amount FROM arbitrages WHERE block_number >= $1 and block_number <= $2 ORDER BY block_number DESC LIMIT $3;", start_block, end_block, limit)
+        sandwiches_records = await conn.fetch("SELECT block_number, frontrun_swap_transaction_hash, backrun_swap_transaction_hash, profit_amount FROM sandwiches WHERE block_number >= $1 and block_number <= $2 ORDER BY block_number DESC LIMIT $3;", start_block , end_block, limit)
 
         logger.info(f"Arbitrages: {arbitrages_records}")
         logger.info(f"Sandwiches: {sandwiches_records}")
