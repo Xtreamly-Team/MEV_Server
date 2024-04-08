@@ -1,6 +1,6 @@
 from sanic import Sanic, response
 from sanic.log import logger
-import json
+import simplejson as json
 import subprocess
 import asyncpg
 
