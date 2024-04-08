@@ -59,7 +59,7 @@ async def get_mev(request):
         return response.json({'error': str(e)}, status=500)
 
 @app.route('/get-mevs', methods=['POST'])
-async def get_mev(request):
+async def get_mevs(request):
 
     # Assuming the request contains data to be passed to the shell command
     data = request.json  # Assuming JSON data is sent in the request
