@@ -4,9 +4,10 @@
 # Example: ./test_mev_server.sh get-mev 16379709
 # Don't forget to chmod it :)
 COMMAND="$1"
-BLOCK="$2"
-echo $COMMAND $BLOCK
+START_BLOCK="$2"
+END_BLOCK="$3"
+echo $COMMAND $START_BLOCK $END_BLOCK
 curl -H 'Content-Type: application/json' \
-	-d "{ \"block\":\"$BLOCK\",\"body\":\"bar\", \"id\": 1}" \
+	-d "{ \"start_block\":\"$START_BLOCK\",\"end_block\":\"$END_BLOCK\"}" \
 	-X POST \
 	"http://test.xtreamly.io:7321/$COMMAND"
