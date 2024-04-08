@@ -1,0 +1,18 @@
+Brotli @ file:///private/tmp/python-brotli-20231117-5631-1j3umt9/Brotli-1.1.0
+cryptography @ file:///private/tmp/python-cryptography-20240305-6258-te1t3c/cryptography-42.0.5
+distlib @ file:///private/tmp/python-distlib-20231213-5303-70ss3l/distlib-0.3.8
+filelock @ file:///private/tmp/python-filelock-20231112-5555-1ys9gwc/filelock-3.13.1/dist/filelock-3.13.1-py3-none-any.whl#sha256=57dbda9b35157b05fb3e58ee91448612eb674172fab98ee235ccb0b5bee19a1c
+Jinja2 @ file:///private/tmp/python-jinja-20231112-5438-gz4qkz/Jinja2-3.1.2
+lxml @ file:///private/tmp/python-lxml-20240108-4998-fb5amm/lxml-5.1.0
+MarkupSafe @ file:///private/tmp/python-markupsafe-20240204-5096-dgsy34/MarkupSafe-2.1.5
+openvino==2024.0.0
+packaging==24.0
+pathspec @ file:///private/tmp/python-pathspec-20231212-5009-aqyw96/pathspec-0.12.1
+platformdirs @ file:///private/tmp/python-platformdirs-20231204-5443-mdrjzo/platformdirs-4.1.0
+pyparsing @ file:///private/tmp/python-pyparsing-20240306-4860-seliwt/pyparsing-3.1.2
+pytz @ file:///private/tmp/python-pytz-20240202-4930-br8jbt/pytz-2024.1
+PyYAML @ file:///private/tmp/pyyaml-20231019-6030-1l8rk6l/PyYAML-6.0.1
+setuptools @ file:///private/tmp/python-setuptools-20240223-4738-b47ohr/setuptools-69.1.1
+six==1.16.0
+TBB @ file:///private/tmp/tbb-20231202-5260-ts4vra/oneTBB-2021.11.0/python
+wheel @ file:///usr/local/Cellar/python%403.12/3.12.2_1/libexec/wheel-0.42.0-py3-none-any.whl#sha256=5f1ca525bef7466225922019d72cb06a9e91cd3ff807ddd4be1acb84655e5107
