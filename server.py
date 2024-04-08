@@ -3,9 +3,16 @@ from sanic.log import logger
 import simplejson as json
 import subprocess
 import asyncpg
+from sanic_ext import Extend
+
 
 CONNECTION = "postgresql://postgres:postgres@localhost:5432/mev_inspect"
 app = Sanic(__name__)
+app.config.CORS_ORIGINS = "*"
+app.config.CORS_ALLOW_HEADERS="*"
+app.config.CORS_METHODS=["GET","POST"]
+Extend(app)
+
 
 @app.route('/inspect-mev', methods=['POST'])
 async def inspect_mev(request):
@@ -90,3 +97,5 @@ async def get_mevs(request):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=7321)
+    # app.run("::", 7321, ssl="/etc/letsencrypt/live/test.xtreamly.io/")
+

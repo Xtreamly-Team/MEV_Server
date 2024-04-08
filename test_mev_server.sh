@@ -11,4 +11,4 @@ echo $COMMAND $START_BLOCK $END_BLOCK
 curl -H 'Content-Type: application/json' \
 	-d "{ \"start_block\":\"$START_BLOCK\",\"end_block\":\"$END_BLOCK\",\"limit\":\"$LIMIT\"}" \
 	-X POST \
-	"http://test.xtreamly.io:7321/$COMMAND"
+	"https://test.xtreamly.io:7321/$COMMAND"
