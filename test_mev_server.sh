@@ -6,8 +6,9 @@
 COMMAND="$1"
 START_BLOCK="$2"
 END_BLOCK="$3"
+LIMIT="$4"
 echo $COMMAND $START_BLOCK $END_BLOCK
 curl -H 'Content-Type: application/json' \
-	-d "{ \"start_block\":\"$START_BLOCK\",\"end_block\":\"$END_BLOCK\"}" \
+	-d "{ \"start_block\":\"$START_BLOCK\",\"end_block\":\"$END_BLOCK\",\"limit\":\"$LIMIT\"}" \
 	-X POST \
 	"http://test.xtreamly.io:7321/$COMMAND"
