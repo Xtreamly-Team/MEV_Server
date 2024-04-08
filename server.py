@@ -58,6 +58,34 @@ async def get_mev(request):
     except Exception as e:
         return response.json({'error': str(e)}, status=500)
 
+@app.route('/get-mevs', methods=['POST'])
+async def get_mev(request):
+
+    # Assuming the request contains data to be passed to the shell command
+    data = request.json  # Assuming JSON data is sent in the request
+    if data is None:
+        return response.json({'message': 'No JSON data provided in the request'}, status=400)
+
+    try:
+        start_block = int(data["start_block"])
+        end_block = int(data["end_block"])
+        logger.info(f"From {start_block} to {end_block}")
+
+        conn = await asyncpg.connect(CONNECTION)
+
+        arbitrages_records = await conn.fetch("SELECT transaction_hash FROM arbitrages WHERE block_number <= $1 and block_number >= $2;", start_block, end_block)
+        sandwiches_records = await conn.fetch("SELECT frontrun_swap_transaction_hash, backrun_swap_transaction_hash FROM sandwiches WHERE block_number <= $1 and block_number >= $2;", start_block , end_block)
+
+        logger.info(f"Arbitrages: {arbitrages_records}")
+        logger.info(f"Sandwiches: {sandwiches_records}")
+        arbitrages = [dict(arbitrage) for arbitrage in arbitrages_records]
+        sandwiches = [dict(sandwich) for sandwich in sandwiches_records]
+
+        await conn.close()
+        return response.json({'arbitrages': json.dumps(arbitrages), 'sandwiches': json.dumps(sandwiches)})
+
+    except Exception as e:
+        return response.json({'error': str(e)}, status=500)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=7321)
